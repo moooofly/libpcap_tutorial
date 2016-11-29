@@ -66,22 +66,6 @@ int main(int argc, char **argv)
 
     // hack method 1
     //sleep(5);
-    /*
-       grab a packet from descr (yay!)                    
-       u_char *pcap_next(pcap_t *p,struct pcap_pkthdr *h) 
-       so just pass in the descriptor we got from         
-       our call to pcap_open_live and an allocated        
-       struct pcap_pkthdr                                 */
-
-/*
-    packet = pcap_next(descr,&hdr);
-
-    if(packet == NULL)
-    {// dinna work *sob*
-        printf("Didn't grab packet\n");
-        exit(1);
-    }
-*/
 
     // hack method 2
     while (1)
@@ -92,6 +76,24 @@ int main(int argc, char **argv)
         else
             sleep(1);
     }
+
+    /*
+       grab a packet from descr (yay!)                    
+       u_char *pcap_next(pcap_t *p,struct pcap_pkthdr *h) 
+       so just pass in the descriptor we got from         
+       our call to pcap_open_live and an allocated        
+       struct pcap_pkthdr                                 */
+
+    // original code
+    /*
+    packet = pcap_next(descr,&hdr);
+
+    if(packet == NULL)
+    {// dinna work *sob*
+        printf("Didn't grab packet\n");
+        exit(1);
+    }
+    */
 
     /*  struct pcap_pkthdr {
         struct timeval ts;   time stamp 
