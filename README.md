@@ -4,7 +4,6 @@ This is a tutorial for libpcap
 
 详细文档说明：[这里](http://yuba.stanford.edu/~casado/pcap/section1.html)    
 
-
 ----------
 
 
@@ -20,6 +19,10 @@ This is a tutorial for libpcap
 - **libpcap** "provides implementation-independent access to the underlying packet capture facility provided by the operating system" (Stevens, UNP page. 707). So pretty much, libpcap is the library we are going to use to grab packets right as they come off of the network card.
 
 > All the examples in this tutorial assume that you are sitting on an Ethernet. 
+
+----------
+
+另外一篇取自 tcpdump 官网的文章：[Programming with pcap](https://github.com/moooofly/libpcap_tutorial/blob/master/programming_with_pcap.md)
 
 ----------
 
