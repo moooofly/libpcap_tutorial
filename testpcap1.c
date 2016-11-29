@@ -15,6 +15,8 @@
 #include <arpa/inet.h>
 #include <netinet/if_ether.h> /* includes net/ethernet.h */
 
+#include <time.h>
+
 int main(int argc, char **argv)
 {
     int i;
@@ -55,7 +57,6 @@ int main(int argc, char **argv)
        before you set your card in promiscuous mode!!     */
 
     descr = pcap_open_live(dev,BUFSIZ,0,-1,errbuf);
-    //descr = pcap_open_live(dev,BUFSIZ,1,-1,errbuf);
 
     if(descr == NULL)
     {
@@ -84,8 +85,8 @@ int main(int argc, char **argv)
        our call to pcap_open_live and an allocated        
        struct pcap_pkthdr                                 */
 
-    // original code
     /*
+    // original code
     packet = pcap_next(descr,&hdr);
 
     if(packet == NULL)
@@ -103,7 +104,7 @@ int main(int argc, char **argv)
      */
 
     printf("Grabbed packet of length %d\n",hdr.len);
-    //printf("Recieved at ..... %s\n",ctime((const time_t*)&hdr.ts.tv_sec)); 
+    printf("Recieved at ..... %s\n",ctime((const time_t*)&hdr.ts.tv_sec)); 
     printf("Ethernet address length is %d\n",ETHER_HDR_LEN);
 
     /* lets start with the ether header... */
